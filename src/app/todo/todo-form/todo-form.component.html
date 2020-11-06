@@ -1,0 +1,27 @@
+<h2>Template Driven TodoForm</h2>
+
+<form (ngSubmit) = "addTodo()">
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput name='title' [(ngModel)] = "todoForm.title">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>dueDate</mat-label>
+    <input matInput [matDatepicker]="picker" name="dueDate" [(ngModel)] = "todoForm.dueDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+<br>
+
+<mat-checkbox name="completed" [(ngModel)] = "todoForm.completed">Done ?</mat-checkbox>
+<br>
+<button mat-flat-button color="primary" >Submit</button>
+
+</form>
+
+<pre>
+    {{todoForm|json}}
+</pre>
